@@ -1,0 +1,136 @@
+<div class="character-card" *ngIf="shouldDisplay">
+    <mat-card>
+        <mat-card-header>
+          <div mat-card-avatar class="thumbnail" [ngStyle]="{'background-image': 'url(' + displayIcon + ')'}"></div>
+            <mat-card-title><h1>{{character.name}}</h1></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-divider></mat-divider>
+            <div class="profile">
+              <ul class="mdl-list column">
+                <li class="mdl-list__item mdl-list__item--two-line">
+                  <span class="mdl-list__item-primary-content">
+                    {{character.height}}
+                    <span class="subtitle">Height</span>
+                  </span>
+                </li>
+                <li class="mdl-list__item mdl-list__item--two-line">
+                  <span class="mdl-list__item-primary-content">
+                    {{character.mass}}
+                    <span class="subtitle">Mass</span>
+                  </span>
+                </li>
+                <div class="mdl-menu__item--full-bleed-divider"></div>
+                <li class="mdl-list__item mdl-list__item--two-line">
+                  <span class="mdl-list__item-primary-content">
+                    {{character.hair_color}}
+                    <span class="subtitle">Hair Color</span>
+                  </span>
+                </li>
+              </ul>
+              <ul class="mdl-list column">
+                  <li class="mdl-list__item mdl-list__item--two-line">
+                    <span class="mdl-list__item-primary-content">
+                      {{character.skin_color}}
+                      <span class="subtitle">Skin Color</span>
+                    </span>
+                  </li>
+                  <div class="mdl-menu__item--full-bleed-divider"></div>
+                  <li class="mdl-list__item mdl-list__item--two-line">
+                    <span class="mdl-list__item-primary-content">
+                      {{character.gender}}
+                      <span class="subtitle">Gender</span>
+                    </span>
+                  </li>
+                  <div class="mdl-menu__item--full-bleed-divider"></div>
+                  <li class="mdl-list__item mdl-list__item--two-line">
+                    <span class="mdl-list__item-primary-content">
+                      {{character.birth_year}}
+                      <span class="subtitle">Birth Year</span>
+                    </span>
+                  </li>
+              </ul>
+            </div>
+            <mat-divider></mat-divider>
+            <div>
+              <h2>Home Planet</h2>
+              <ul class="mdl-list homeplanet">
+                <li class="mdl-list__item mdl-list__item--two-line">
+                  <span class="mdl-list__item-primary-content">
+                    {{character.home_planet?.title}}
+                    <span class="subtitle">Title</span>
+                  </span>
+                </li>
+                <div class="mdl-menu__item--full-bleed-divider"></div>
+                <li class="mdl-list__item mdl-list__item--two-line">
+                  <span class="mdl-list__item-primary-content">
+                    {{character.home_planet?.terrain}}
+                    <span class="subtitle">Terrain</span>
+                  </span>
+                </li>
+                <div class="mdl-menu__item--full-bleed-divider"></div>
+                <li class="mdl-list__item mdl-list__item--two-line">
+                  <span class="mdl-list__item-primary-content">
+                    {{character.home_planet?.population}}
+                    <span class="subtitle">Population</span>
+                  </span>
+                </li>
+            </ul>
+            </div>
+            <div>
+              <h2>Species</h2>
+              <table mat-table [dataSource]="character.species" class="table">
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="average_lifespan">
+                  <th mat-header-cell *matHeaderCellDef> Average Lifespan </th>
+                  <td mat-cell *matCellDef="let element"> {{element.average_lifespan}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="classification">
+                  <th mat-header-cell *matHeaderCellDef> Classification </th>
+                  <td mat-cell *matCellDef="let element"> {{element.classification}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="language">
+                  <th mat-header-cell *matHeaderCellDef> Language </th>
+                  <td mat-cell *matCellDef="let element"> {{element.language}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="speciesColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: speciesColumns;"></tr>
+              </table>    
+            </div>
+            <div>
+              <h2>Films</h2>
+               <table mat-table [dataSource]="character.films" class="table">
+                <ng-container matColumnDef="title">
+                  <th mat-header-cell *matHeaderCellDef> Title </th>
+                  <td mat-cell *matCellDef="let film"> {{film.title}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="director">
+                  <th mat-header-cell *matHeaderCellDef> Director </th>
+                  <td mat-cell *matCellDef="let film"> {{film.director}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="producer">
+                  <th mat-header-cell *matHeaderCellDef> Producer </th>
+                  <td mat-cell *matCellDef="let film"> {{film.producer}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="release_date">
+                  <th mat-header-cell *matHeaderCellDef> Release Date </th>
+                  <td mat-cell *matCellDef="let film"> {{film.release_date}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="filmColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: filmColumns;"></tr>
+              </table>              
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,50 @@
+.character-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    ul li{
+        list-style-type: none;
+        padding: 10px;
+    }
+    mat-card{
+      width: 50%;
+    }
+}
+
+.profile{
+  display: flex;
+  flex-direction: row;
+}
+  
+.subtitle{
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 18px;
+  color: rgba(0,0,0,.54);
+  display: block;
+  padding: 0;
+}
+
+.column{
+  width: 50%;
+}
+
+.table{
+  width: 100%;
+}
+
+.homeplanet{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+h2{
+  padding-top: 20px;
+}
+
+.thumbnail {
+  background-size: cover;
+}

@@ -1,0 +1,5 @@
+<mat-nav-list role="list" class="character-list">  
+    <a mat-list-item routerLink="character/{{person.id}}" *ngFor="let person of people" role="listitem">
+        {{person.name}}
+    </a>
+</mat-nav-list>
